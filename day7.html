@@ -1,0 +1,21 @@
+//camecase
+let camelCase= (strs)=>{ 
+    strs= strs.trim()
+    strs=strs.replace(/[-_]*/, "")
+    strs= strs.replace(/[_-]*$/, "")
+    let final= []
+    let temp= ""
+    for(let i= 0; i< strs.length; i++){
+        if(strs[i] === ' ' || strs[i] === '-' || strs[i] === '_'){
+            final.push(temp)
+            temp= ""
+            temp= temp.concat(strs[++i].toUpperCase())
+        }
+        else{
+            temp= temp.concat(strs[i])
+        }
+    }
+    final.push(temp)
+    return final.join('')
+}
+console.log(camelCase("  -foo-bar-kk-"))
